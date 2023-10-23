@@ -19,25 +19,27 @@ class Shape:
 
 class Rectangle(Shape):
     def draw(self, screen):
-        print("Drawing Rectangle: {}, color: {}, position: {}".format(self.text, self._color, self.position))
         pygame.draw.rect(screen, self._color, self.position)
         font = pygame.font.Font(None, 20)
         text_surface = font.render(self.text, True, self._color)
         screen.blit(text_surface, (10, 40))
 
+        print("Drawing Rectangle: {}, color: {}, position: {}".format(self.text, self._color, self.position))
+
 
 class Circle(Shape):
     def draw(self, screen):
-        print("Drawing Circle: {}, color: {}, position: {}".format(self.text, self._color, self.position))
         pygame.draw.ellipse(screen, self._color, self.position)
         font = pygame.font.Font(None, 20)
         text_surface = font.render(self.text, True, self._color)
         screen.blit(text_surface, (10, 60))
 
+        print("Drawing Circle: {}, color: {}, position: {}".format(self.text, self._color, self.position))
+
 
 class Triangle(Shape):
     def draw(self, screen):
-        print("Drawing Triangle: {}, color: {}, position: {}".format(self.text, self._color, self.position))
+
         points = [
             (self.position[0] + self.position[2] / 2, self.position[1]),
             (self.position[0], self.position[1] + self.position[3]),
@@ -48,6 +50,7 @@ class Triangle(Shape):
         text_surface = font.render(self.text, True, self._color)
         screen.blit(text_surface, (10, 80))
 
+        print("Drawing Triangle: {}, color: {}, position: {}".format(self.text, self._color, self.position))
 
 class Engine2D:
     def __init__(self, width, height, title):
