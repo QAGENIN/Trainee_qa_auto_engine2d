@@ -1,39 +1,37 @@
 import pygame
 
 
-class Rectangle:
+class Shape:
     def __init__(self, text, color, position):
         self.text = text
         self.color = color
         self.position = position
 
     def draw(self, screen):
+        raise NotImplementedError
+
+
+class Rectangle(Shape):
+    def draw(self, screen):
+        print("Drawing Rectangle: {}, color: {}, position: {}".format(self.text, self.color, self.position))
         pygame.draw.rect(screen, self.color, self.position)
         font = pygame.font.Font(None, 20)
         text_surface = font.render(self.text, True, self.color)
         screen.blit(text_surface, (10, 40))
 
 
-class Circle:
-    def __init__(self, text, color, position):
-        self.text = text
-        self.color = color
-        self.position = position
-
+class Circle(Shape):
     def draw(self, screen):
+        print("Drawing Circle: {}, color: {}, position: {}".format(self.text, self.color, self.position))
         pygame.draw.ellipse(screen, self.color, self.position)
         font = pygame.font.Font(None, 20)
         text_surface = font.render(self.text, True, self.color)
         screen.blit(text_surface, (10, 60))
 
 
-class Triangle:
-    def __init__(self, text, color, position):
-        self.text = text
-        self.color = color
-        self.position = position
-
+class Triangle(Shape):
     def draw(self, screen):
+        print("Drawing Triangle: {}, color: {}, position: {}".format(self.text, self.color, self.position))
         points = [
             (self.position[0] + self.position[2] / 2, self.position[1]),
             (self.position[0], self.position[1] + self.position[3]),
