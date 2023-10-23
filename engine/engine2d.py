@@ -1,4 +1,3 @@
-import sys
 import pygame
 
 
@@ -63,17 +62,3 @@ class Engine2D:
             shape.draw(self.screen)
 
         pygame.display.flip()  # Обновить экран
-
-
-# Пример использования
-engine = Engine2D(800, 600, "2D-движок")
-shape1 = Rectangle('Прямоугольник', (255, 0, 0), (100, 200, 200, 100))
-shape2 = Circle('Круг', (0, 255, 0), (400, 200, 100, 100))
-shape3 = Triangle('Треугольник', (0, 0, 255), (600, 200, 100, 100))
-
-engine.canvas.append(shape1)
-engine.canvas.append(shape2)
-engine.canvas.append(shape3)
-
-engine.draw()
-
