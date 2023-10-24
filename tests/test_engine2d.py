@@ -7,11 +7,21 @@ circle = Circle('Круг', (0, 255, 0), (400, 200, 100, 100))
 triangle = Triangle('Треугольник', (0, 0, 255), (600, 200, 100, 100))
 
 
+def test_positions(engine_object):
+    engine_object.canvas.append(rectangle)
+    engine_object.canvas.append(circle)
+    engine_object.canvas.append(triangle)
+    engine_object.draw()
+    time.sleep(1)
+
+    assert rectangle.position == (100, 200, 200, 100)
+    assert circle.position == (400, 200, 100, 100)
+    assert triangle.position == (600, 200, 100, 100)
+
 def test_rectangle_draw(engine_object):
     engine_object.canvas.append(rectangle)
     engine_object.draw()
     time.sleep(1)
-
     assert rectangle in engine_object.canvas
 
 
