@@ -35,26 +35,29 @@ def test_change_color(engine_object):
     engine_object.canvas.append(circle)
     engine_object.canvas.append(triangle)
 
-    rectangle._change_color((0, 0, 255))
+    rectangle._change_color((150, 80, 255))
     circle._change_color((255, 255, 0))
 
     engine_object.draw()
     time.sleep(1)
 
-    assert rectangle.get_color() == (0, 0, 255), "Цвет прямоугольника не изменился на синий"
+    assert rectangle.get_color() == (150, 80, 255), "Цвет прямоугольника не изменился"
     assert circle.get_color() == (255, 255, 0), "Цвет круга не изменился на желтый"
 
 
 def test_positions(engine_object):
     engine_object.canvas.append(rectangle)
+    rectangle.position = (100, 400, 300, 100)
     engine_object.canvas.append(circle)
+    circle.position = (200, 400, 100, 100)
     engine_object.canvas.append(triangle)
+    triangle.position = (600, 400, 200, 100)
     engine_object.draw()
     time.sleep(1)
 
-    assert rectangle.position == (100, 200, 200, 100)
-    assert circle.position == (400, 200, 100, 100)
-    assert triangle.position == (600, 200, 100, 100)
+    assert rectangle.position == (100, 400, 300, 100)
+    assert circle.position == (200, 400, 100, 100)
+    assert triangle.position == (600, 400, 200, 100)
 
 
 def test_delete_figure(engine_object):
