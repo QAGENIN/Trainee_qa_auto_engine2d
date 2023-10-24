@@ -21,7 +21,6 @@ def test_rectangle_draw(engine_object):
     time.sleep(1)
 
 
-
 def test_circle_draw(engine_object):
     engine_object.canvas.append(circle)
     assert circle in engine_object.canvas
@@ -30,14 +29,12 @@ def test_circle_draw(engine_object):
     time.sleep(1)
 
 
-
 def test_triangle_draw(engine_object):
     engine_object.canvas.append(triangle)
     assert triangle in engine_object.canvas
 
     engine_object.draw()
     time.sleep(1)
-
 
 
 def test_change_color(engine_object):
