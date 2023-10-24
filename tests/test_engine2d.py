@@ -9,26 +9,32 @@ triangle = Triangle('Треугольник', (0, 0, 255), (600, 200, 100, 100))
 
 def test_rectangle_draw(engine_object):
     engine_object.canvas.append(rectangle)
+    assert rectangle in engine_object.canvas
+
     engine_object.draw()
     time.sleep(1)
-    assert rectangle in engine_object.canvas
+
+    assert engine_object.canvas == []
 
 
 def test_circle_draw(engine_object):
     engine_object.canvas.append(circle)
+    assert circle in engine_object.canvas
+
     engine_object.draw()
     time.sleep(1)
 
-    assert circle in engine_object.canvas
+    assert engine_object.canvas == []
 
 
 def test_triangle_draw(engine_object):
     engine_object.canvas.append(triangle)
+    assert triangle in engine_object.canvas
+
     engine_object.draw()
     time.sleep(1)
 
-    assert triangle in engine_object.canvas
-
+    assert engine_object.canvas == []
 
 def test_change_color(engine_object):
     engine_object.canvas.append(rectangle)
@@ -48,10 +54,13 @@ def test_change_color(engine_object):
 def test_positions(engine_object):
     engine_object.canvas.append(rectangle)
     rectangle.position = (100, 400, 300, 100)
+
     engine_object.canvas.append(circle)
     circle.position = (200, 400, 100, 100)
+
     engine_object.canvas.append(triangle)
     triangle.position = (600, 400, 200, 100)
+
     engine_object.draw()
     time.sleep(1)
 

@@ -35,6 +35,7 @@ class Circle(Shape):
         screen.blit(text_surface, (10, 60))
 
         print("Drawing Circle: {}, color: {}, position: {}".format(self.text, self._color, self.position))
+        return self
 
 
 class Triangle(Shape):
@@ -69,3 +70,4 @@ class Engine2D:
             shape.draw(self.screen)
 
         pygame.display.flip()  # Обновить экран
+        self.canvas.clear()
