@@ -7,6 +7,12 @@ circle = Circle('Круг', (0, 255, 0), (400, 200, 100, 100))
 triangle = Triangle('Треугольник', (0, 0, 255), (600, 200, 100, 100))
 
 
+def test_clearing_the_canvas_after_draw(engine_object):
+    engine_object.canvas.append(rectangle)
+    engine_object.draw()
+    assert engine_object.canvas == []
+
+
 def test_rectangle_draw(engine_object):
     engine_object.canvas.append(rectangle)
     assert rectangle in engine_object.canvas
@@ -14,7 +20,6 @@ def test_rectangle_draw(engine_object):
     engine_object.draw()
     time.sleep(1)
 
-    assert engine_object.canvas == []
 
 
 def test_circle_draw(engine_object):
@@ -24,7 +29,6 @@ def test_circle_draw(engine_object):
     engine_object.draw()
     time.sleep(1)
 
-    assert engine_object.canvas == []
 
 
 def test_triangle_draw(engine_object):
@@ -34,7 +38,7 @@ def test_triangle_draw(engine_object):
     engine_object.draw()
     time.sleep(1)
 
-    assert engine_object.canvas == []
+
 
 def test_change_color(engine_object):
     engine_object.canvas.append(rectangle)
