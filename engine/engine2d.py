@@ -39,7 +39,6 @@ class Circle(Shape):
 
 class Triangle(Shape):
     def draw(self, screen):
-
         points = [
             (self.position[0] + self.position[2] / 2, self.position[1]),
             (self.position[0], self.position[1] + self.position[3]),
@@ -51,6 +50,7 @@ class Triangle(Shape):
         screen.blit(text_surface, (10, 80))
 
         print("Drawing Triangle: {}, color: {}, position: {}".format(self.text, self._color, self.position))
+
 
 class Engine2D:
     def __init__(self, width, height, title):
